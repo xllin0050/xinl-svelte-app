@@ -111,7 +111,12 @@
 					</button>
 				</nav>
 			</div>
-			<img src="/test.webp" alt="xinl" class="hidden h-40 w-auto object-contain md:block" />
+			<enhanced:img
+				src="$lib/assets/NeoViking#1738.webp?w=160"
+				sizes="min(160px, 100vw)"
+				alt="xinl"
+				class="hidden md:block"
+			/>
 		</div>
 	</section>
 	<!-- About -->
@@ -170,7 +175,6 @@
 			</article>
 		{/if}
 	</section>
-
 </main>
 
 <style>
