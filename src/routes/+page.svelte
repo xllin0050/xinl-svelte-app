@@ -58,9 +58,9 @@
 	};
 
 	const socialLinks: SocialLink[] = [
-		{ name: 'Email', href: 'mailto:contact@xinl.com', type: 'email' },
-		{ name: 'X', href: 'https://x.com/xinl', type: 'x' },
-		{ name: 'Facebook', href: 'https://facebook.com/xinl', type: 'facebook' }
+		{ name: 'Email', href: 'mailto:xinlprod@pm.me', type: 'email' },
+		{ name: 'X', href: 'https://x.com/xinlprod', type: 'x' },
+		{ name: 'Facebook', href: 'https://facebook.com/xinlprod', type: 'facebook' }
 	];
 </script>
 
