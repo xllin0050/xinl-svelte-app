@@ -37,6 +37,8 @@
 	},
 	"dependencies": {
 		"@inlang/paraglide-sveltekit": "^0.15.5",
-		"lucide-svelte": "^0.475.0"
+		"@types/three": "^0.174.0",
+		"lucide-svelte": "^0.475.0",
+		"three": "^0.174.0"
 	}
 }

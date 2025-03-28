@@ -1,0 +1,24 @@
+{
+	"releases": [
+		{
+			"title": "Neon Pulse",
+			"date": "2024-01-15",
+			"cover": "/covers/cover1.webp",
+			"streamLinks": {
+				"spotify": "https://open.spotify.com/track/xxx",
+				"apple": "https://music.apple.com/album/xxx",
+				"youtube": "https://youtube.com/watch?v=xxx"
+			}
+		},
+		{
+			"title": "Cyber Dreams",
+			"date": "2023-11-02",
+			"cover": "/covers/cover2.webp",
+			"streamLinks": {
+				"spotify": "https://open.spotify.com/track/yyy",
+				"apple": "https://music.apple.com/album/yyy",
+				"youtube": "https://youtube.com/watch?v=yyy"
+			}
+		}
+	]
+}

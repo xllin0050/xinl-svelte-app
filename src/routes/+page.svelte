@@ -8,6 +8,7 @@
 	import { onMount } from 'svelte';
 	import { languageTag, availableLanguageTags } from '$lib/paraglide/runtime';
 	import type { AvailableLanguageTag } from '$lib/paraglide/runtime';
+	import Timeline from '$lib/components/Timeline.svelte';
 
 	// 只允許一個 section 展開
 	let expandedSection = $state<string | null>(null);
@@ -138,8 +139,8 @@
 			<h2 class="text-2xl uppercase">release</h2>
 		</div>
 		{#if expandedSection === 'release'}
-			<article transition:slide class="bg-middleground mt-2 h-[200px] w-full">
-				<!-- 內容區塊 -->
+			<article transition:slide class=" mt-2 w-full p-4">
+				<Timeline />
 			</article>
 		{/if}
 	</section>
