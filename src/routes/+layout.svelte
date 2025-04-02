@@ -12,12 +12,6 @@
 		{@render children()}
 	</ParaglideJS>
 	<footer class="text-middleground absolute right-0 bottom-0 p-4 uppercase">
-		<enhanced:img
-			src="$lib/assets/NeoViking#1738.webp?w=96"
-			sizes="min(96px, 100vw)"
-			alt="xinl"
-			class="block md:hidden"
-		/>
 		<p>&copy; {new Date().getFullYear()} xinl</p>
 	</footer>
 </div>

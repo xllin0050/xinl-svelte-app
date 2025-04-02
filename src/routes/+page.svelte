@@ -83,7 +83,7 @@
 	<!-- Artist Name -->
 	<section class="mb-8">
 		<div class="flex flex-col md:flex-row md:items-center md:justify-between">
-			<div>
+			<div class="pb-4 md:pb-0">
 				<h1 class="text-[4rem] uppercase md:text-[8rem]">xinl</h1>
 				<nav class="flex gap-2">
 					<button
@@ -113,10 +113,10 @@
 				</nav>
 			</div>
 			<enhanced:img
-				src="$lib/assets/NeoViking#1738.webp?w=160"
-				sizes="min(160px, 100vw)"
+				src="$lib/assets/NeoViking#1738.webp?w=140"
+				sizes="min(140px, 100vw)"
 				alt="xinl"
-				class="hidden md:block"
+				class="block"
 			/>
 		</div>
 	</section>

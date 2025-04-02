@@ -62,18 +62,18 @@
 	<!-- 專輯資訊顯示 -->
 	{#if selectedRelease}
 		<div
-			class="bg-secondary absolute right-4 bottom-4 left-4 flex items-center justify-between p-4 backdrop-blur-sm"
+			class="bg-secondary opacity-100 absolute right-4 bottom-4 left-4 flex items-center justify-between p-4 backdrop-blur-sm"
 		>
 			<div class="text-black">
 				<h3 class="text-xl font-bold">{selectedRelease.title}</h3>
 				<time class="text-sm opacity-75">{selectedRelease.date}</time>
 			</div>
-			<div class="flex gap-4">
+			<div class="flex items-center gap-4 text-[0px]">
 				<a
 					href={selectedRelease.streamLinks.spotify}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="hover:text-pearl-white transition-colors"
+					class="hover:text-pearl-white inline-flex transition-colors"
 				>
 					<img src="/spotify.svg" alt="Spotify" class="h-6 w-6" />
 				</a>
@@ -81,7 +81,7 @@
 					href={selectedRelease.streamLinks.apple}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="hover:text-pearl-white transition-colors"
+					class="hover:text-pearl-white inline-flex transition-colors"
 				>
 					<img src="/applemusic.svg" alt="Apple Music" class="h-6 w-6" />
 				</a>
@@ -89,7 +89,7 @@
 					href={selectedRelease.streamLinks.youtube}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="hover:text-pearl-white transition-colors"
+					class="hover:text-pearl-white inline-flex transition-colors"
 				>
 					<img src="/youtube.svg" alt="YouTube" class="h-6 w-6" />
 				</a>
