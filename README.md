@@ -50,3 +50,9 @@ You can preview the production build with `npm run preview`.
 [Tailwind CSS](https://tailwindcss.com/)
 
 [Lucide Svelte](https://lucide.dev/guide/packages/lucide-svelte)
+
+[YouTube Music](https://www.youtube.com/channel/UCDDeWfyyFX9i5VO8ygUMk1Q)
+
+[Apple Music](https://music.apple.com/tw/artist/xinl/1738827541)
+
+[Spotify](https://open.spotify.com/artist/0bnELeVpQsHqH4V8A8E5IV)

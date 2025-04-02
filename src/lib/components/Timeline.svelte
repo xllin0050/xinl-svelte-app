@@ -1,113 +1,68 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import * as THREE from 'three';
 	import type { Release } from '$lib/types';
 	import releaseData from '$lib/data/releases.json';
 
 	export let releases: Release[] = releaseData.releases;
+	let selectedRelease: Release | null = releases[0];
+	let selectedIndex = 0;
 
-	let container: HTMLDivElement;
-	let selectedRelease: Release | null = null;
-	let scene: THREE.Scene;
-	let camera: THREE.PerspectiveCamera;
-	let renderer: THREE.WebGLRenderer;
-	let planes: THREE.Mesh[] = [];
-	let targetY = 0;
-	let currentY = 0;
-	let animationFrameId: number;
+	// 计算位置的常量
+	const COVER_HEIGHT = 200; // 封面高度
+	const GAP = 32; // 间距（gap-8 = 2rem = 32px）
+	const CONTAINER_HEIGHT = 400; // 容器高度
+	const INITIAL_OFFSET = GAP / 2; // 初始偏移，考虑gap的一半
 
-	onMount(() => {
-		initThree();
-		animate();
-
-		return () => {
-			if (animationFrameId) {
-				cancelAnimationFrame(animationFrameId);
-			}
-			if (renderer) {
-				renderer.dispose();
-			}
-		};
-	});
-
-	function initThree() {
-		// 創建場景
-		scene = new THREE.Scene();
-
-		// 創建相機
-		const aspect = container.clientWidth / container.clientHeight;
-		camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
-		camera.position.z = 3;
-
-		// 創建渲染器
-		renderer = new THREE.WebGLRenderer({
-			antialias: true,
-			alpha: true
-		});
-		renderer.setSize(container.clientWidth, container.clientHeight);
-		renderer.setPixelRatio(window.devicePixelRatio);
-		container.appendChild(renderer.domElement);
-
-		// 創建專輯封面平面
-		const geometry = new THREE.PlaneGeometry(1.5, 1.5);
-		const textureLoader = new THREE.TextureLoader();
-
-		releases.forEach((release, i) => {
-			const texture = textureLoader.load(release.cover);
-			const material = new THREE.MeshBasicMaterial({
-				map: texture,
-				transparent: true,
-				opacity: 0.8
-			});
-			const plane = new THREE.Mesh(geometry, material);
-			plane.position.set(0, -i * 2, 0);
-			plane.userData = { release };
-			planes.push(plane);
-			scene.add(plane);
-		});
-
-		// 添加視窗調整事件監聽
-		window.addEventListener('resize', onWindowResize);
-	}
-
-	function onWindowResize() {
-		const aspect = container.clientWidth / container.clientHeight;
-		camera.aspect = aspect;
-		camera.updateProjectionMatrix();
-		renderer.setSize(container.clientWidth, container.clientHeight);
-	}
-
-	function animate() {
-		animationFrameId = requestAnimationFrame(animate);
-
-		// 平滑相機移動
-		currentY += (targetY - currentY) * 0.1;
-		camera.position.y = currentY;
-
-		// 平面旋轉動畫
-		planes.forEach((plane) => {
-			plane.rotation.y = Math.sin(Date.now() * 0.001) * 0.1;
-		});
-
-		renderer.render(scene, camera);
-	}
+	// 计算偏移量
+	$: offset = INITIAL_OFFSET + selectedIndex * (COVER_HEIGHT + GAP);
 
 	function selectRelease(release: Release) {
 		selectedRelease = selectedRelease === release ? null : release;
-		const index = releases.indexOf(release);
-		if (index !== -1) {
-			targetY = index * 2;
-		}
+		selectedIndex = releases.indexOf(release);
 	}
 </script>
 
-<div class="relative h-[400px] w-full">
-	<div bind:this={container} class="absolute inset-0"></div>
+<div class="relative h-[400px] w-full overflow-hidden bg-black">
+	<!-- 封面展示區，md斷點以上才顯示 -->
+	<div
+		class="absolute hidden left-8 flex-col items-center gap-8 md:flex"
+		style="top: {CONTAINER_HEIGHT}px; transform: translateY(-50%) translateY(-{offset}px);"
+	>
+		{#each releases as release, i}
+			<div
+				class="relative transition-all duration-500 ease-out"
+				style="transform: rotateY({Math.sin(Date.now() * 0.001) * 5}deg)"
+			>
+				<button
+					type="button"
+					class="focus:ring-secondary block h-[200px] w-[200px] cursor-pointer shadow-xl focus:ring-2 focus:outline-none"
+					on:click={() => selectRelease(release)}
+					on:keydown={(e) => e.key === 'Enter' && selectRelease(release)}
+				>
+					<img src={release.cover} alt={release.title} class="h-full w-full object-cover" />
+				</button>
+			</div>
+		{/each}
+	</div>
+
+	<!-- md斷點以下的按鈕列表 -->
+	<div class="absolute inset-x-0 top-4 flex justify-center md:hidden">
+		<div class="flex flex-col gap-2">
+			{#each releases as release}
+				<button
+					type="button"
+					class={`hover:bg-tertiary w-48 rounded-lg bg-black px-4 py-2 text-center transition-colors ${selectedRelease === release ? 'bg-secondary text-black' : ''}`}
+					on:click={() => selectRelease(release)}
+				>
+					{release.title}
+				</button>
+			{/each}
+		</div>
+	</div>
 
 	<!-- 專輯資訊顯示 -->
 	{#if selectedRelease}
 		<div
-			class="absolute right-4 bottom-4 left-4 flex items-center justify-between bg-secondary p-4 backdrop-blur-sm"
+			class="bg-secondary absolute right-4 bottom-4 left-4 flex items-center justify-between p-4 backdrop-blur-sm"
 		>
 			<div class="text-black">
 				<h3 class="text-xl font-bold">{selectedRelease.title}</h3>
@@ -142,8 +97,8 @@
 		</div>
 	{/if}
 
-	<!-- 側邊列表 -->
-	<div class="absolute top-4 right-4 flex flex-col gap-2">
+	<!-- 側邊列表，md斷點以上才顯示 -->
+	<div class="absolute top-4 right-4 hidden flex-col gap-2 md:flex">
 		{#each releases as release}
 			<button
 				class={`hover:bg-tertiary bg-black px-4 py-2 backdrop-blur-sm transition-colors ${
@@ -156,9 +111,3 @@
 		{/each}
 	</div>
 </div>
-
-<style>
-	:global(canvas) {
-		touch-action: none;
-	}
-</style>

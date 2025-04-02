@@ -1,24 +1,34 @@
 {
 	"releases": [
 		{
-			"title": "Neon Pulse",
-			"date": "2024-01-15",
-			"cover": "/covers/cover1.webp",
+			"title": "Positive Faker",
+			"date": "2024-09-14",
+			"cover": "/covers/positive_faker.png",
 			"streamLinks": {
-				"spotify": "https://open.spotify.com/track/xxx",
-				"apple": "https://music.apple.com/album/xxx",
-				"youtube": "https://youtube.com/watch?v=xxx"
+				"spotify": "https://open.spotify.com/track/2ZaUfZoBRnZRekIL5tNyEU",
+				"apple": "https://music.apple.com/tw/album/positive-faker-revision/1765069811",
+				"youtube": "https://youtu.be/DF0c1v3hlo8"
 			}
 		},
 		{
-			"title": "Cyber Dreams",
-			"date": "2023-11-02",
-			"cover": "/covers/cover2.webp",
+			"title": "Blue Monster Alive",
+			"date": "2024-11-24",
+			"cover": "/covers/blue_monster_alive.png",
 			"streamLinks": {
-				"spotify": "https://open.spotify.com/track/yyy",
-				"apple": "https://music.apple.com/album/yyy",
-				"youtube": "https://youtube.com/watch?v=yyy"
+				"spotify": "https://open.spotify.com/track/2HxxI8E2Nz0k9OrPIVs904",
+				"apple": "https://music.apple.com/tw/album/blue-monster-alive/1778226955",
+				"youtube": "https://youtu.be/7Fbp9RJq-pY"
+			}
+		},	{
+			"title": "Susumu",
+			"date": "2024-11-24",
+			"cover": "/covers/susumu.png",
+			"streamLinks": {
+				"spotify": "https://open.spotify.com/track/3RtOKdxEoaXam2SzFj6qwU",
+				"apple": "https://music.apple.com/tw/album/susumu/1796936453",
+				"youtube": "https://youtu.be/C81gKGkGeTA"
 			}
 		}
 	]
 }
+
