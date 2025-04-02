@@ -8,6 +8,7 @@
 	import { onMount } from 'svelte';
 	import { languageTag, availableLanguageTags } from '$lib/paraglide/runtime';
 	import type { AvailableLanguageTag } from '$lib/paraglide/runtime';
+	import Timeline from '$lib/components/Timeline.svelte';
 
 	// 只允許一個 section 展開
 	let expandedSection = $state<string | null>(null);
@@ -58,9 +59,9 @@
 	};
 
 	const socialLinks: SocialLink[] = [
-		{ name: 'Email', href: 'mailto:contact@xinl.com', type: 'email' },
-		{ name: 'X', href: 'https://x.com/xinl', type: 'x' },
-		{ name: 'Facebook', href: 'https://facebook.com/xinl', type: 'facebook' }
+		{ name: 'Email', href: 'mailto:xinlprod@pm.me', type: 'email' },
+		{ name: 'X', href: 'https://x.com/xinlprod', type: 'x' },
+		{ name: 'Facebook', href: 'https://facebook.com/xinlprod', type: 'facebook' }
 	];
 </script>
 
@@ -111,7 +112,12 @@
 					</button>
 				</nav>
 			</div>
-			<img src="/test.webp" alt="xinl" class="hidden h-40 w-auto object-contain md:block" />
+			<enhanced:img
+				src="$lib/assets/NeoViking#1738.webp?w=160"
+				sizes="min(160px, 100vw)"
+				alt="xinl"
+				class="hidden md:block"
+			/>
 		</div>
 	</section>
 	<!-- About -->
@@ -133,8 +139,8 @@
 			<h2 class="text-2xl uppercase">release</h2>
 		</div>
 		{#if expandedSection === 'release'}
-			<article transition:slide class="bg-middleground mt-2 h-[200px] w-full">
-				<!-- 內容區塊 -->
+			<article transition:slide class=" mt-2 w-full p-4">
+				<Timeline />
 			</article>
 		{/if}
 	</section>
@@ -170,7 +176,6 @@
 			</article>
 		{/if}
 	</section>
-
 </main>
 
 <style>

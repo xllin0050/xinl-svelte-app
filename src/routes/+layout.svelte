@@ -5,17 +5,22 @@
 	let { children } = $props();
 </script>
 
-<div class="bg-background image font-iceland grid min-h-svh place-items-center py-0 md:py-10">
+<div
+	class="bg-background image font-iceland relative grid min-h-svh place-items-center py-0 md:py-10"
+>
 	<ParaglideJS {i18n}>
 		{@render children()}
 	</ParaglideJS>
+	<footer class="text-middleground absolute right-0 bottom-0 p-4 uppercase">
+		<enhanced:img
+			src="$lib/assets/NeoViking#1738.webp?w=96"
+			sizes="min(96px, 100vw)"
+			alt="xinl"
+			class="block md:hidden"
+		/>
+		<p>&copy; {new Date().getFullYear()} xinl</p>
+	</footer>
 </div>
-<footer class="text-middleground absolute right-0 bottom-0 p-4 uppercase">
-	<figure class="block md:hidden">
-		<img src="/test.webp" alt="xinl" class="h-24 w-auto object-contain" />
-	</figure>
-	<p>&copy; {new Date().getFullYear()} xinl</p>
-</footer>
 
 <style>
 	.image {
