@@ -144,6 +144,42 @@
 			</article>
 		{/if}
 	</section>
+	<!-- Memecoin -->
+	<section class="mb-4">
+		<div class="flex items-center gap-2">
+			{@render expandButton('memecoin')}
+			<h2 class="text-2xl uppercase">memecoin</h2>
+		</div>
+		{#if expandedSection === 'memecoin'}
+			<article transition:slide class="mt-2 h-auto w-full p-4">
+				<div class="flex flex-col items-start gap-4">
+					<a
+						href="https://www.snek.fun/token/c59077498bb5b674ea080af917fecd0d1ad128dfe16652b8f4260f1558494e4c20436f696e"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="block transition-opacity hover:opacity-70"
+						aria-label="Visit xinl memecoin on snek.com"
+					>
+						<enhanced:img
+							src="$lib/assets/xinl_logo.png?w=64"
+							sizes="min(64px, 100vw)"
+							alt="xinl memecoin"
+							class="block"
+						/>
+					</a>
+					<!-- <a
+						href="https://snek.com"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="text-cream-white transition-opacity hover:opacity-70"
+					>
+						snek.com
+					</a> -->
+				</div>
+			</article>
+		{/if}
+	</section>
+
 	<!-- Contact -->
 	<section class="mb-4">
 		<div class="flex items-center gap-2">
