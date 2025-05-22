@@ -1,44 +1,21 @@
 <script lang="ts">
 	import { scale, slide } from 'svelte/transition';
 	import { Plus, Minus, Mail } from 'lucide-svelte';
-	import * as m from '$lib/paraglide/messages.js';
-	import { i18n } from '$lib/i18n';
-	import { page } from '$app/state';
-	import { goto } from '$app/navigation';
+	import { m } from '$lib/paraglide/messages';
+	import { getLocale, setLocale } from '$lib/paraglide/runtime';
 	import { onMount } from 'svelte';
-	import { languageTag, availableLanguageTags } from '$lib/paraglide/runtime';
-	import type { AvailableLanguageTag } from '$lib/paraglide/runtime';
+
 	import Timeline from '$lib/components/Timeline.svelte';
 
 	// 只允許一個 section 展開
 	let expandedSection = $state<string | null>(null);
 
-	let currentLanguage = $state<AvailableLanguageTag>(languageTag());
+	// 定義可用的語言型別
+	type AvailableLanguage = 'en' | 'zh' | 'ja';
 
-	// 使用瀏覽器系統語系作為預設值
-	onMount(() => {
-		// 使用瀏覽器系統語系作為預設值
-		const browserLanguage = navigator.language.split('-')[0] as AvailableLanguageTag;
+	const currentLanguage = $state<AvailableLanguage>(getLocale() as AvailableLanguage);
 
-		// 檢查瀏覽器語系是否在我們支持的語言中
-		if (availableLanguageTags.includes(browserLanguage) && browserLanguage !== languageTag()) {
-			// 如果瀏覽器語系與當前語言不同，則進行重定向
-			const canonicalPath = i18n.route(page.url.pathname);
-			const localisedPath = i18n.resolveRoute(canonicalPath, browserLanguage);
-			goto(localisedPath);
-		}
-	});
-
-	// 切換語言的函數
-	function switchToLanguage(newLanguage: AvailableLanguageTag): void {
-		// 更新當前語言
-		currentLanguage = newLanguage;
-
-		// 通過 URL 切換語言
-		const canonicalPath = i18n.route(page.url.pathname);
-		const localisedPath = i18n.resolveRoute(canonicalPath, newLanguage);
-		goto(localisedPath);
-	}
+	onMount(() => {});
 
 	// 切換展開狀態的函數
 	function toggleSection(sectionName: string): void {
@@ -90,7 +67,7 @@
 						class="border-foreground hover:bg-foreground hover:text-background border px-2 py-1 text-xs transition-colors"
 						class:bg-foreground={currentLanguage === 'zh'}
 						class:text-background={currentLanguage === 'zh'}
-						onclick={() => switchToLanguage('zh')}
+						onclick={() => setLocale('zh')}
 					>
 						中文
 					</button>
@@ -98,7 +75,7 @@
 						class="border-foreground hover:bg-foreground hover:text-background border px-2 py-1 text-xs transition-colors"
 						class:bg-foreground={currentLanguage === 'en'}
 						class:text-background={currentLanguage === 'en'}
-						onclick={() => switchToLanguage('en')}
+						onclick={() => setLocale('en')}
 					>
 						English
 					</button>
@@ -106,7 +83,7 @@
 						class="border-foreground hover:bg-foreground hover:text-background border px-2 py-1 text-xs transition-colors"
 						class:bg-foreground={currentLanguage === 'ja'}
 						class:text-background={currentLanguage === 'ja'}
-						onclick={() => switchToLanguage('ja')}
+						onclick={() => setLocale('ja')}
 					>
 						日本語
 					</button>
