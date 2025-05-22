@@ -45,8 +45,6 @@ You can preview the production build with `npm run preview`.
 
 [Paraglide JS](https://inlang.com/m/gerre34r/library-inlang-paraglideJs)
 
-[Paraglide-SvelteKit](https://inlang.com/m/dxnzrydw/paraglide-sveltekit-i18n)
-
 [Tailwind CSS](https://tailwindcss.com/)
 
 [Lucide Svelte](https://lucide.dev/guide/packages/lucide-svelte)
@@ -57,4 +55,4 @@ You can preview the production build with `npm run preview`.
 
 [Spotify](https://open.spotify.com/artist/0bnELeVpQsHqH4V8A8E5IV)
 
-[xyflow](https://svelteflow.dev/)
+[animejs](https://animejs.com/)
