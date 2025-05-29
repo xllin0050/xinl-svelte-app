@@ -8,8 +8,7 @@ import devtoolsJson from 'vite-plugin-devtools-json';
 export default defineConfig({
 	server: {
 		host: '0.0.0.0',
-		port: 5178,
-		open: true
+		port: 5178
 	},
 	plugins: [
 		enhancedImages(),

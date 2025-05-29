@@ -25,28 +25,40 @@
 	}
 </script>
 
-<main class="bg-background text-pearl-white h-full w-full px-8 opacity-80 md:w-xl">
+<main
+	class="bg-background/90 text-pearl-white h-full w-full overflow-y-auto px-8 md:h-[calc(100vh-8rem)] md:w-xl"
+>
 	<!-- 頭部區域 -->
 	<Header />
-	
+
 	<!-- 各個部分 -->
-	<AboutSection 
-		isExpanded={expandedSection === 'about'} 
-		onToggle={() => toggleSection('about')} 
+	<AboutSection isExpanded={expandedSection === 'about'} onToggle={() => toggleSection('about')} />
+
+	<ReleaseSection
+		isExpanded={expandedSection === 'release'}
+		onToggle={() => toggleSection('release')}
 	/>
-	
-	<ReleaseSection 
-		isExpanded={expandedSection === 'release'} 
-		onToggle={() => toggleSection('release')} 
+
+	<MemecoinSection
+		isExpanded={expandedSection === 'memecoin'}
+		onToggle={() => toggleSection('memecoin')}
 	/>
-	
-	<MemecoinSection 
-		isExpanded={expandedSection === 'memecoin'} 
-		onToggle={() => toggleSection('memecoin')} 
-	/>
-	
-	<ContactSection 
-		isExpanded={expandedSection === 'contact'} 
-		onToggle={() => toggleSection('contact')} 
+
+	<ContactSection
+		isExpanded={expandedSection === 'contact'}
+		onToggle={() => toggleSection('contact')}
 	/>
 </main>
+
+<style>
+	/* 隱藏滾動條但保持滾動功能 */
+	main {
+		-ms-overflow-style: none; /* IE 和 Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+
+	/* WebKit 瀏覽器 */
+	main::-webkit-scrollbar {
+		display: none;
+	}
+</style>

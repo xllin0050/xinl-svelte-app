@@ -16,6 +16,7 @@
 	.bg-image {
 		background-image: url(/omg41.jpg);
 		background-size: cover;
-		background-position: bottom;
+		background-position: top;
+		background-attachment: fixed;
 	}
 </style>

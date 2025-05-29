@@ -1,6 +1,7 @@
 {
 	"releases": [
 		{
+			"id": "positive-faker",
 			"title": "Positive Faker",
 			"date": "2024-09-14",
 			"cover": "/covers/positive_faker.png",
@@ -11,6 +12,7 @@
 			}
 		},
 		{
+			"id": "blue-monster-alive",
 			"title": "Blue Monster Alive",
 			"date": "2024-11-24",
 			"cover": "/covers/blue_monster_alive.png",
@@ -19,7 +21,9 @@
 				"apple": "https://music.apple.com/tw/album/blue-monster-alive/1778226955",
 				"youtube": "https://youtu.be/7Fbp9RJq-pY"
 			}
-		},	{
+		},
+		{
+			"id": "susumu",
 			"title": "Susumu",
 			"date": "2024-11-24",
 			"cover": "/covers/susumu.png",
@@ -31,4 +35,3 @@
 		}
 	]
 }
-
