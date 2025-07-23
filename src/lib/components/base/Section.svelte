@@ -25,7 +25,7 @@
 	{#if isExpanded}
 		<article
 			transition:slide={{ duration: 500 }}
-			class="mt-2 h-auto w-full p-4"
+			class="mt-4 h-auto w-full p-4"
 		>
 			<slot />
 		</article>

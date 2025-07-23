@@ -1,11 +1,9 @@
 <script lang="ts">
-	import { Mail, Bot } from 'lucide-svelte';
 	import Section from './base/Section.svelte';
 
 	type SocialLink = {
 		name: string;
 		href: string;
-		icon: ConstructorOfATypedSvelteComponent;
 		label: string;
 	};
 
@@ -16,45 +14,32 @@
 		{
 			name: 'Email',
 			href: 'mailto:xinlprod@pm.me',
-			icon: Mail,
 			label: '發送郵件給我們'
 		},
 		{
-			name: 'X (Twitter)',
+			name: 'X',
 			href: 'https://x.com/xinlprod',
-			icon: Bot,
-			label: '在 X (Twitter) 上關注我們'
+			label: '在 X 上關注我'
 		},
 		{
 			name: 'Facebook',
 			href: 'https://facebook.com/xinlprod',
-			icon: Bot,
-			label: '在 Facebook 上關注我們'
+			label: '在 Facebook 上關注我'
 		}
 	];
 </script>
 
 <Section title="contact" {isExpanded} {onToggle}>
-	<div class="flex items-center justify-start gap-4">
-		{#each socialLinks as { name, href, icon: Icon, label }}
+	<div class="flex flex-col gap-4">
+		{#each socialLinks as { name, href, label }}
 			<a
 				{href}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="group text-cream-white flex w-15 flex-col items-center gap-2 transition-opacity hover:opacity-80"
+				class="text-cream-white hover:border-pearl-white inline-block rounded-md border-2 border-transparent p-2 transition-all duration-300"
 				aria-label={label}
 			>
-				<div class="h-6 w-6">
-					<Icon
-						aria-hidden="true"
-						class="h-full w-full transition-transform group-hover:scale-110"
-					/>
-				</div>
-				<span
-					class="text-sm opacity-0 transition-opacity group-hover:opacity-100"
-				>
-					{name}
-				</span>
+				{name}
 			</a>
 		{/each}
 	</div>

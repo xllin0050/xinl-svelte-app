@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { createTimeline } from 'animejs';
+	import { onMount, tick } from 'svelte';
 
 	import Section from './base/Section.svelte';
 
@@ -14,11 +15,20 @@
 	onMount(() => {
 		releases = [...releaseData.releases].reverse();
 	});
+
+	$: if (isExpanded) {
+		tick().then(() => {
+			createTimeline().add('.release-item', {
+				scale: { from: 0.8 },
+				duration: 800
+			});
+		});
+	}
 </script>
 
 <Section title="release" {isExpanded} {onToggle}>
 	{#each releases as release (release.id)}
-		<div class="flex flex-col items-center pb-4">
+		<div class="release-item flex flex-col items-center pb-16">
 			<div
 				class="border-pearl-white flex w-full items-center justify-between border-b text-xl"
 			>
