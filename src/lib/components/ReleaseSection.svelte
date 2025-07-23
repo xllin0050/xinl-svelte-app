@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	import Section from './Section.svelte';
+	import Section from './base/Section.svelte';
 
 	import type { Release } from '$lib/types';
 	import releaseData from '$lib/data/releases.json';
@@ -19,9 +19,13 @@
 <Section title="release" {isExpanded} {onToggle}>
 	{#each releases as release (release.id)}
 		<div class="flex flex-col items-center pb-4">
-			<div class="border-pearl-white flex w-full items-center justify-between border-b text-xl">
+			<div
+				class="border-pearl-white flex w-full items-center justify-between border-b text-xl"
+			>
 				<h3>{release.title}</h3>
-				<time datetime={new Date(release.date).toISOString()}>{release.date}</time>
+				<time datetime={new Date(release.date).toISOString()}
+					>{release.date}</time
+				>
 			</div>
 			<div class="flex w-full flex-row items-center gap-4 md:flex-col">
 				<ul

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { m } from '$lib/paraglide/messages';
-	import Section from './Section.svelte';
+	import Section from './base/Section.svelte';
 
 	export let isExpanded: boolean;
 	export let onToggle: () => void;

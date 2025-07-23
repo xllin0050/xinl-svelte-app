@@ -23,7 +23,10 @@
 		<h2 class="text-2xl uppercase">{title}</h2>
 	</div>
 	{#if isExpanded}
-		<article transition:slide class="mt-2 h-auto w-full p-4">
+		<article
+			transition:slide={{ duration: 500 }}
+			class="mt-2 h-auto w-full p-4"
+		>
 			<slot />
 		</article>
 	{/if}

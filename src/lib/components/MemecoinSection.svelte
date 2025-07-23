@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Section from './Section.svelte';
+	import Section from './base/Section.svelte';
 
 	export let isExpanded: boolean;
 	export let onToggle: () => void;
@@ -21,13 +21,5 @@
 				class="block"
 			/>
 		</a>
-		<!-- <a
-			href="https://snek.com"
-			target="_blank"
-			rel="noopener noreferrer"
-			class="text-cream-white transition-opacity hover:opacity-70"
-		>
-			snek.com
-		</a> -->
 	</div>
 </Section>

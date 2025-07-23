@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Mail, Bot } from 'lucide-svelte';
-	import Section from './Section.svelte';
+	import Section from './base/Section.svelte';
 
 	type SocialLink = {
 		name: string;
