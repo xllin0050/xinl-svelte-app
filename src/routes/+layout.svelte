@@ -16,6 +16,13 @@
 	<meta name="description" content={description} />
 	<link rel="canonical" href={page.url.href} />
 
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+	<link
+		rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap"
+	/>
+
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content={siteName} />
 	<meta property="og:title" content={title} />
