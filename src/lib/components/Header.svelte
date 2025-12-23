@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { setLocale } from '$lib/i18n';
 	import Btn from './base/Btn.svelte';
-	import Img from './base/Img.svelte';
-	import logo from '$lib/assets/xinl_logo.png';
+	// import Img from './base/Img.svelte';
+	// import logo from '$lib/assets/xinl_logo.png';
 
 	// 定義可用的語言型別
 	type AvailableLanguage = 'en' | 'zh' | 'ja';
 
-	let useLogo = false;
+	// let useLogo = false;
 
 	type LanguageBtn = {
 		language: AvailableLanguage;
@@ -24,11 +24,7 @@
 <section class="header-section">
 	<div class="wrapper">
 		<header>
-			{#if useLogo}
-				<Img src={logo} alt="xinl" class="logo" height={96} />
-			{:else}
-				<h1>xinl</h1>
-			{/if}
+			<h1>xinl</h1>
 		</header>
 		<nav>
 			{#each languageBtns as btn}
@@ -51,6 +47,7 @@
 	h1 {
 		text-transform: uppercase;
 		text-align: center;
+		letter-spacing: 0.2em;
 	}
 
 	nav {

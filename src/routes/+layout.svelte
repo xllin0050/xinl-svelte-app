@@ -6,12 +6,12 @@
 </script>
 
 <div
-	class="app-container "
+	class="app-container"
 >
 	{@render children()}
 	<ContactSection />
-	<footer class="">
-		<p>&copy; {new Date().getFullYear()} xinl</p>
+	<footer>
+		<p>&copy; {new Date().getFullYear()} <span>xinl</span></p>
 	</footer>
 </div>
 
@@ -30,5 +30,10 @@
 footer {
     grid-area: footer;
     text-align: center;
+}
+
+footer p span {
+    text-transform: uppercase;
+    letter-spacing: .1em;
 }
 </style>

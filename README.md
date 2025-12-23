@@ -1,58 +1,40 @@
-# sv
+# XINL OFFICIAL WEBSITE
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+包含：
+- 簡介內容（About）
+- 語系切換（EN / ZH / JA，前端 SPA，會記住你上次選擇）
+- 社群連結（Contact）
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## 開發（本機）
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm install
+pnpm dev
 ```
 
-## Building
+啟動後打開：
 
-To create a production version of your app:
+http://localhost:5178
 
-```bash
-npm run build
-```
+## 內容如何修改
 
-You can preview the production build with `npm run preview`.
+- **About 文案**
+  - `src/lib/messages/en.json`
+  - `src/lib/messages/zh.json`
+  - `src/lib/messages/ja.json`
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- **語系切換 UI**
+  - `src/lib/components/Header.svelte`
 
-### Libraries
+- **社群連結**
+  - `src/lib/components/ContactSection.svelte`
 
-[Svelte](https://svelte.dev/docs/svelte/overview)
+## 資產（Assets）
 
-[SvelteKit](https://svelte.dev/docs/kit/introduction)
+- **Logo**
+  - `src/lib/assets/xinl_logo.png`
 
-[Paraglide JS](https://inlang.com/m/gerre34r/library-inlang-paraglideJs)
+- **SVG Icons**
+  - 放在 `src/lib/assets/*.svg`
+  - 由 `src/lib/components/base/Icon.svelte` 統一載入與控制
 
-[Tailwind CSS](https://tailwindcss.com/)
-
-[Lucide Svelte](https://lucide.dev/guide/packages/lucide-svelte)
-
-[YouTube Music](https://www.youtube.com/channel/UCDDeWfyyFX9i5VO8ygUMk1Q)
-
-[Apple Music](https://music.apple.com/tw/artist/xinl/1738827541)
-
-[Spotify](https://open.spotify.com/artist/0bnELeVpQsHqH4V8A8E5IV)
-
-[animejs](https://animejs.com/)
