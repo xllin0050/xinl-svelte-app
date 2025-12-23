@@ -1,9 +1,31 @@
 <script lang="ts">
 	import '../app.css';
 	import ContactSection from '$lib/components/ContactSection.svelte';
+	import { page } from '$app/state';
 
 	let { children } = $props();
+
+	const siteName = 'XINL';
+	const title = 'XINL';
+	const description =
+		'XINL is an electronic music project based in Taiwan.';
 </script>
+
+<svelte:head>
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<link rel="canonical" href={page.url.href} />
+
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content={siteName} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:url" content={page.url.href} />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+</svelte:head>
 
 <div
 	class="app-container"
