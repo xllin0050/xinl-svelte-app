@@ -1,7 +1,7 @@
 @import './lib/assets/normalize.css';
 
 :root {
-	--font-ui: Inter, 'Noto Sans TC', 'Noto Sans JP', system-ui, -apple-system, 'Segoe UI', Roboto,
+	--font-ui: Inter, 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', Roboto,
 		'Helvetica Neue', Arial, sans-serif;
 	--color-gray-0: #808080;
 	--color-gray-1: #d3d3d3;

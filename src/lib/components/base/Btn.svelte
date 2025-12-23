@@ -23,7 +23,7 @@
 		display: inline-block;
 		font-family: var(--font-ui);
 		font-size: 14px;
-		font-weight: 500;
+		font-weight: 400;
 		letter-spacing: 0;
 		line-height: 1em;
 		margin: 0;
