@@ -4,61 +4,21 @@
 	// 引入組件
 	import Header from '$lib/components/Header.svelte';
 	import AboutSection from '$lib/components/AboutSection.svelte';
-	import ReleaseSection from '$lib/components/ReleaseSection.svelte';
-	import MemecoinSection from '$lib/components/MemecoinSection.svelte';
-	import ContactSection from '$lib/components/ContactSection.svelte';
-
-	// 只允許一個 section 展開
-	let expandedSection = $state<string | null>(null);
 
 	onMount(() => {});
 
-	// 切換展開狀態的函數
-	function toggleSection(sectionName: string): void {
-		if (expandedSection === sectionName) {
-			// 如果點擊的是當前已展開的 section，則收起
-			expandedSection = null;
-		} else {
-			// 否則展開點擊的 section，收起其他 section
-			expandedSection = sectionName;
-		}
-	}
 </script>
 
-<main
-	class="bg-background/90 text-pearl-white h-full w-full overflow-y-auto px-8 md:h-[calc(100vh-8rem)] md:w-xl"
->
+<main>
 	<!-- 頭部區域 -->
 	<Header />
-
-	<!-- 各個部分 -->
-	<AboutSection isExpanded={expandedSection === 'about'} onToggle={() => toggleSection('about')} />
-
-	<ReleaseSection
-		isExpanded={expandedSection === 'release'}
-		onToggle={() => toggleSection('release')}
-	/>
-
-	<MemecoinSection
-		isExpanded={expandedSection === 'memecoin'}
-		onToggle={() => toggleSection('memecoin')}
-	/>
-
-	<ContactSection
-		isExpanded={expandedSection === 'contact'}
-		onToggle={() => toggleSection('contact')}
-	/>
+	<AboutSection />
 </main>
 
 <style>
-	/* 隱藏滾動條但保持滾動功能 */
+	/* 高度 */
 	main {
-		-ms-overflow-style: none; /* IE 和 Edge */
-		scrollbar-width: none; /* Firefox */
-	}
-
-	/* WebKit 瀏覽器 */
-	main::-webkit-scrollbar {
-		display: none;
+		grid-area: main;
+		min-height: 0;
 	}
 </style>

@@ -1,16 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
-@import 'tailwindcss';
+@import './lib/assets/normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap');
 
-@theme {
-	--font-iceland: 'Iceland', sans-serif;
-	/* --color-sage-green: #a4c3a6; */
-	--color-pearl-white: #e4e7e1;
-	/* --color-sage-gray: #a4afa6; */
-	--color-cream-white: #e4e4d7;
-	--color-background: #1e1e1d;
-	--color-foreground: rgb(231, 231, 216);
-	--color-middleground: rgb(174, 172, 149);
-	/* --color-primary: rgb(238, 101, 43); */
-	/* --color-secondary: rgb(237, 117, 47); */
-	/* --color-tertiary: rgb(240, 146, 53); */
+:root {
+	--font-ui: Inter, 'Noto Sans TC', 'Noto Sans JP', system-ui, -apple-system, 'Segoe UI', Roboto,
+		'Helvetica Neue', Arial, sans-serif;
+	--color-gray-0: #808080;
+	--color-gray-1: #d3d3d3;
+	--color-gray-2: #f5f5f5;
+	--color-gray-3: #e8e8e8;
+	--color-gray-4: #dcdcdc;
+	--color-white: #ffffff;
+	--bg-color: var(--color-white);
+	--text-color: var(--color-gray-0);
+}
+
+body {
+	font-family: var(--font-ui);
+	background-color: var(--bg-color);
+	color: var(--text-color);
 }

@@ -1,10 +1,13 @@
 <script lang="ts">
-	import { getLocale, setLocale } from '$lib/paraglide/runtime';
+	import { setLocale } from '$lib/i18n';
+	import Btn from './base/Btn.svelte';
+	import Img from './base/Img.svelte';
+	import logo from '$lib/assets/xinl_logo.png';
 
 	// 定義可用的語言型別
 	type AvailableLanguage = 'en' | 'zh' | 'ja';
 
-	const currentLanguage = $state<AvailableLanguage>(getLocale() as AvailableLanguage);
+	let useLogo = false;
 
 	type LanguageBtn = {
 		language: AvailableLanguage;
@@ -13,33 +16,46 @@
 
 	const languageBtns: LanguageBtn[] = [
 		{ language: 'en', label: 'English' },
-		{ language: 'zh', label: '中文' },
-		{ language: 'ja', label: '日本語' }
+		{ language: 'zh', label: 'Chinese' },
+		{ language: 'ja', label: 'Japanese' }
 	];
 </script>
 
-<section class="mb-8">
-	<div class="flex flex-col md:flex-row md:items-center md:justify-between">
-		<div class="pb-4 md:pb-0">
-			<h1 class="text-[4rem] uppercase md:text-[8rem]">xinl</h1>
-			<nav class="flex gap-2">
-				{#each languageBtns as btn}
-					<button
-						class="border-foreground hover:bg-foreground hover:text-background border px-2 py-1 text-xs transition-colors"
-						class:bg-foreground={currentLanguage === btn.language}
-						class:text-background={currentLanguage === btn.language}
-						onclick={() => setLocale(btn.language)}
-					>
-						{btn.label}
-					</button>
-				{/each}
-			</nav>
-		</div>
-		<enhanced:img
-			src="$lib/assets/NeoViking#1738.webp?w=140"
-			sizes="min(140px, 100vw)"
-			alt="xinl"
-			class="block"
-		/>
+<section class="header-section">
+	<div class="wrapper">
+		<header>
+			{#if useLogo}
+				<Img src={logo} alt="xinl" class="logo" height={96} />
+			{:else}
+				<h1>xinl</h1>
+			{/if}
+		</header>
+		<nav>
+			{#each languageBtns as btn}
+				<Btn onclick={() => setLocale(btn.language)}>
+					{btn.label}
+				</Btn>
+			{/each}
+		</nav>
 	</div>
 </section>
+
+<style>
+	header {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1em 0;
+	}
+
+	h1 {
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	nav {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+	}
+</style>

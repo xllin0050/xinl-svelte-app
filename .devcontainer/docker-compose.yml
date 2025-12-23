@@ -1,9 +1,0 @@
-services:
-  app:
-    image: node:22
-    volumes:
-      - ..:/workspace:cached
-    working_dir: /workspace
-    ports:
-      - "5173:5173"
-    command: sleep infinity

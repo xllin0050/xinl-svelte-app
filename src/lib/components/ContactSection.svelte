@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Section from './base/Section.svelte';
+	import Icon from '$lib/components/base/Icon.svelte';
 
 	type SocialLink = {
 		name: string;
@@ -7,52 +7,64 @@
 		label: string;
 	};
 
-	export let isExpanded: boolean;
-	export let onToggle: () => void;
-
 	const socialLinks: SocialLink[] = [
 		{
-			name: 'Email',
+			name: 'bandcamp',
+			href: 'https://xinl.bandcamp.com',
+			label: 'visit bandcamp'
+		},
+		{
+			name: 'mail',
 			href: 'mailto:xinlprod@pm.me',
-			label: '發送郵件給我們'
+			label: 'drop me an email'
 		},
-		{
-			name: 'X',
-			href: 'https://x.com/xinlprod',
-			label: '在 X 上關注我'
-		},
-		{
-			name: 'Facebook',
-			href: 'https://facebook.com/xinlprod',
-			label: '在 Facebook 上關注我'
-		}
 	];
 </script>
 
-<Section title="contact" {isExpanded} {onToggle}>
-	<div class="flex flex-col gap-4">
+<section class="contact-section">
+    	<div class="social-links">
 		{#each socialLinks as { name, href, label }}
 			<a
 				{href}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="text-cream-white hover:border-pearl-white inline-block rounded-md border-2 border-transparent p-2 transition-all duration-300"
+				class=""
 				aria-label={label}
 			>
-				{name}
+				<Icon name={name} size={24} ariaLabel={label} />
+				<span class="visually-hidden">{name}</span>
 			</a>
 		{/each}
 	</div>
-</Section>
+</section>
 
 <style>
+	.contact-section {
+	    grid-area: contact;
+		padding: .5em 0;
+	}
+	.social-links {
+		display: flex;
+		justify-content: center;
+		gap: 1em;
+	}
 	/* 添加平滑過渡效果 */
 	a {
+		display: inline-flex;
+		align-items: center;
+		color: var(--text-color);
 		will-change: transform;
 	}
 
-	/* 確保圖標顏色正確繼承 */
-	:global(svg) {
-		@apply h-full w-full;
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
 	}
 </style>
