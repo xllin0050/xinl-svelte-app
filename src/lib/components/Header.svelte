@@ -47,12 +47,12 @@
 	h1 {
 		text-transform: uppercase;
 		text-align: center;
-		letter-spacing: 0.2em;
+		letter-spacing: 0.1em;
 	}
 
 	nav {
 		display: flex;
 		justify-content: center;
-		gap: 1rem;
+		gap: 4em;
 	}
 </style>

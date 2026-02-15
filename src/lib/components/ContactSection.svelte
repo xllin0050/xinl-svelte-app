@@ -15,7 +15,7 @@
 		},
 		{
 			name: 'mail',
-			href: 'mailto:xinlprod@pm.me',
+			href: 'mailto:carl@xinlprod.com',
 			label: 'drop me an email'
 		},
 	];
